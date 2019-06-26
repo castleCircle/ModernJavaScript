@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let user = {
+        name: "john",
+        age: 30,
+        "what name": 20
+      }; // multiword property name must be quoted
+
+      //alert(user["what name"]);
+
+      var obj = {
+        for: 1,
+        let: 2,
+        return: 3
+      };
+
+      //alert(obj.for);
+
+      // A variable cannot have a name equal to one of language-reserved words like "for","let" etc
+      // But for an object property, there's no such rectriction. Any name is fine.
+
+      let user1 = { age: 30 };
+
+      //   alert("age" in user1);
+
+      let codes = {
+        "+1": 1,
+        "+2": 2,
+        "+3": 3,
+        "+4": 4
+      };
+
+      for (let c in codes) {
+        // alert(+c);
+      }
+
+      // One of the fundamental differences of objects vs primitives is that they are stored and copied “by reference”.
+      //    Primitive values: strings, numbers, booleans – are assigned/copied “as a whole value”.
+
+      let userTest = { name: "jone" };
+      let admit = userTest;
+
+      admit.name = "hello";
+      //   alert(userTest.name);
+
+      let user2 = { name: "John" };
+
+      //   let permission1 = { canView: true };
+      //   let permission2 = { canEdit: true };
+
+      //   Object.assign(user2, permission1, permission2);
+      //   console.log(user2);
+
+      Object.assign(user2, { name: "Pete", isAdmin: true });
+      console.log(user2);
+      // if the receving object ( user ) already has the same named property, it will be overwritten.
+
+      let lastUser = {
+        name: "a",
+        sizes: {
+          height: 1
+        }
+      };
+
+      let con = Object.assign({}, lastUser);
+      con.sizes.height++;
+      alert(lastUser.sizes.height);
+
+      // Now it’s not enough to copy clone.sizes = user.sizes, because the user.sizes is an object, it will be copied by reference.
+      // So clone and user will share the same sizes:
+
+      let test1 = {
+        a: "a",
+        b: 1
+      };
+
+      let test2 = Object.assign({}, test1);
+      test1.b++;
+      alert(test2.b);
+    </script>
+  </body>
+</html>
