@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    //**********************Garbage Collection***********************
+    // reachable 이란 값은 어떻게해서든지 접근 가능하거나 사용할수 있어야 한다.
+    // 1. 기본적으로 reachable 한 값들이 있는 기본 집합이 있다. 아래의 이유로 삭제 불가능
+    //- 현재 function의 지역 변수, 파라미터는 접근 가능하다
+    //- 중첩 호출의 현재체인에 있는 다른 함수의 변수나 파라미터는 접근 가능하다
+    //- 글로벌 변수는 접근 가능하다
+    //2. 다른 값은 참조 또는 참조 체인에 의해 루트에서 도달 할수 있는 경우 도달 가능한 것으로 간주되어진다.
+
+    //let user = {
+    // name : "John"
+    //};
+
+    //global의 user는 Object 를 가르키게 된다.
+    //그러다 user = null을 주게 되면
+    //object는 더이상 unreachable 하게 된다. 그러면 GC가 memory에서 해제한다.
+
+</body>
+
+</html>

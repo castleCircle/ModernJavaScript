@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        user = {
+            sayHi: function () {
+                alert("hello");
+            }
+        };
+
+        //user.sayHi();
+
+        user1 = {
+            sayHi() {
+                alert("test");
+            }
+        }
+
+        //user1.sayHi();
+
+        // a : function() => a() 으로 줄일수 있다. 정확히 따지면 다르다.
+
+        let user2 = {
+            name: "john",
+            age: 30,
+
+            sayHi() {
+                alert(user2.name);
+            }
+        };
+
+        let admin = user2;
+        user2 = null;
+        //  admin.sayHi();
+
+        //user2가 아닌 this를 사용해야지  error가 안남
+
+        //JavaScript의 this는 .앞이 무엇인지 중요하다.
+        //this는 자유롭다. call-time에 계산되어지고 어디 메소드에 명시되어있는지는 중요하지 않다.
+
+        var UserTest = {
+            name: "John",
+            hi() {
+                alert(this.name);
+            },
+            bye() {
+                alert("bye");
+            }
+        };
+
+        // UserTest.hi();
+
+        //(UserTest.name == "John" ? UserTest.hi : UserTest.bye)();
+
+        let test = {
+            firstName: "Ilya",
+            sayHi() {
+                let arrow = () => alert(this.firstName);
+                //arrow();
+            }
+        };
+
+        test.sayHi();
+
+        function execute() {
+            'use strict';
+            console.log(this === undefined);
+            console.log(this);
+
+            function concat(str1, str2) {
+                console.log(this === undefined);
+                return str1 + str2;
+            }
+
+            concat('Hello', 'World!');
+        }
+
+        execute();
+    </script>
+
+</body>
+
+</html>

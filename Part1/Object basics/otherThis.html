@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+        var numbers = {
+            numberA: 5,
+            numberB: 10,
+            sum: function () {
+                console.log(this === numbers);
+                console.log(this);
+
+                function calculate() {
+                    console.log(this === numbers);
+                    console.log(this);
+                    return this.numberA + this.numberB;
+                }
+                return calculate();
+            }
+        };
+
+        numbers.sum();
+    </Script>
+</body>
+
+</html>
