@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function User(name) {
+        //     this.name = name;
+        //     this.isAdmin = false;
+        // }
+
+        // var user = new User("hi");
+
+        // alert(user.name);
+        // alert(user.isAdmin);
+
+        //원리
+        // {
+        //     this = {}; //암시적
+        //     this.name = name;
+        //     this.isAdmin = false;
+
+        //     return this; //암시적
+        // }
+
+        function User() {
+            alert(new.target);
+        }
+
+        User();
+
+        new User();
+    </script>
+</body>
+
+</html>
